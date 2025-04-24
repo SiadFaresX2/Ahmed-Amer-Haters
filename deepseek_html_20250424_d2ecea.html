@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Amer Haters Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .counter {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ff4444;
+            margin: 20px 0;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        button:hover {
+            background-color: #ff0000;
+            transform: scale(1.05);
+        }
+        
+        button:active {
+            transform: scale(0.95);
+        }
+        
+        .message {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .watermark {
+            position: fixed;
+            bottom: 20px;
+            font-size: 2rem;
+            color: #333;
+            opacity: 0.7;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ahmed Amer Haters Counter</h1>
+    <div class="counter" id="hatersCount">0</div>
+    <button id="hateButton">Click to Add a Hater</button>
+    <div class="message" id="message">Keep clicking to increase the hate! 😂</div>
+
+    <!-- Your Watermark -->
+    <div class="watermark">Created by Siad Fares</div>
+
+    <script>
+        let haters = 0;
+        const hatersCount = document.getElementById("hatersCount");
+        const hateButton = document.getElementById("hateButton");
+        const message = document.getElementById("message");
+
+        hateButton.addEventListener("click", () => {
+            haters++;
+            hatersCount.textContent = haters;
+            
+            // Funny messages based on count
+            if (haters === 10) {
+                message.textContent = "Wow, Ahmed has 10 haters already! 😳";
+            } else if (haters === 50) {
+                message.textContent = "50 haters?! Ahmed must be famous! 😂";
+            } else if (haters === 100) {
+                message.textContent = "100 HATERS! 🎉 Ahmed is a legend!";
+            } else if (haters === 500) {
+                message.textContent = "500 haters... Ahmed, what did you do?! 😱";
+            } else if (haters === 1000) {
+                message.textContent = "1000 HATERS! 🚨 Ahmed is officially the most hated!";
+            }
+        });
+    </script>
+</body>
+</html>
